@@ -1,5 +1,17 @@
 import streamlit as st
 from ultralytics import YOLO
+import subprocess
+import sys
+
+def install(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
+# Example usage
+try:
+    install('ultralytics')
+    install('opencv-python')
+except Exception as e:
+    print(f"An error occurred: {e}")
 from PIL import Image
 import matplotlib.pyplot as plt
 st.title("Face Recognition Borwita")
